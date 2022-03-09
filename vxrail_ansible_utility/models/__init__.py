@@ -270,5 +270,3 @@ from vxrail_ansible_utility.models.vxm_system_info_v3 import VxmSystemInfoV3
 from vxrail_ansible_utility.models.vxm_system_info_v4 import VxmSystemInfoV4
 from vxrail_ansible_utility.models.witness_node_credential import WitnessNodeCredential
 from vxrail_ansible_utility.models.witness_spec import WitnessSpec
-from vxrail_ansible_utility.models.private_cluster_host_info import PrivateClusterHostInfo
-from vxrail_ansible_utility.models.cluster_nodes_pnics import ClusterNodesPnics
