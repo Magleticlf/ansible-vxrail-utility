@@ -29,16 +29,10 @@ class HostSpecV2(object):
     """
     swagger_types = {
         'id': 'str',
-        'serial_number': 'str',
+        'sn': 'str',
         'slot': 'int',
-        'host_name': 'str',
-        'appliance_id': 'str',
-        'model': 'str',
-        'is_primary_node': 'bool',
-        'cluster_affinity': 'bool',
-        'discovered_date': 'int',
-        'bios_uuid': 'str',
-        'segment_label': 'str',
+        'hostname': 'str',
+        'name': 'str',
         'manufacturer': 'str',
         'psnt': 'str',
         'led_status': 'str',
@@ -48,21 +42,19 @@ class HostSpecV2(object):
         'ip_set_ipv6': 'HostSpecV2IpSetIpv6',
         'tpm_present': 'bool',
         'operational_status': 'str',
-        'power_status': 'str'
+        'power_status': 'str',
+        'boot_devices': 'list[BootDevice]',
+        'nics': 'list[Nic]',
+        'disks': 'list[DiskInfo]',
+        'firmware_info': 'FirmwareInfo'
     }
 
     attribute_map = {
         'id': 'id',
-        'serial_number': 'serial_number',
+        'sn': 'sn',
         'slot': 'slot',
-        'host_name': 'host_name',
-        'appliance_id': 'appliance_id',
-        'model': 'model',
-        'is_primary_node': 'is_primary_node',
-        'cluster_affinity': 'cluster_affinity',
-        'discovered_date': 'discovered_date',
-        'bios_uuid': 'bios_uuid',
-        'segment_label': 'segment_label',
+        'hostname': 'hostname',
+        'name': 'name',
         'manufacturer': 'manufacturer',
         'psnt': 'psnt',
         'led_status': 'led_status',
@@ -72,22 +64,20 @@ class HostSpecV2(object):
         'ip_set_ipv6': 'ip_set_ipv6',
         'tpm_present': 'tpm_present',
         'operational_status': 'operational_status',
-        'power_status': 'power_status'
+        'power_status': 'power_status',
+        'boot_devices': 'boot_devices',
+        'nics': 'nics',
+        'disks': 'disks',
+        'firmware_info': 'firmwareInfo'
     }
 
-    def __init__(self, id=None, serial_number=None, slot=None, host_name=None, appliance_id=None, model=None, is_primary_node=None, cluster_affinity=None, discovered_date=None, bios_uuid=None, segment_label=None, manufacturer=None, psnt=None, led_status=None, health=None, missing=None, ip_set=None, ip_set_ipv6=None, tpm_present=None, operational_status=None, power_status=None):  # noqa: E501
+    def __init__(self, id=None, sn=None, slot=None, hostname=None, name=None, manufacturer=None, psnt=None, led_status=None, health=None, missing=None, ip_set=None, ip_set_ipv6=None, tpm_present=None, operational_status=None, power_status=None, boot_devices=None, nics=None, disks=None, firmware_info=None):  # noqa: E501
         """HostSpecV2 - a model defined in Swagger"""  # noqa: E501
         self._id = None
-        self._serial_number = None
+        self._sn = None
         self._slot = None
-        self._host_name = None
-        self._appliance_id = None
-        self._model = None
-        self._is_primary_node = None
-        self._cluster_affinity = None
-        self._discovered_date = None
-        self._bios_uuid = None
-        self._segment_label = None
+        self._hostname = None
+        self._name = None
         self._manufacturer = None
         self._psnt = None
         self._led_status = None
@@ -98,29 +88,21 @@ class HostSpecV2(object):
         self._tpm_present = None
         self._operational_status = None
         self._power_status = None
+        self._boot_devices = None
+        self._nics = None
+        self._disks = None
+        self._firmware_info = None
         self.discriminator = None
         if id is not None:
             self.id = id
-        if serial_number is not None:
-            self.serial_number = serial_number
+        if sn is not None:
+            self.sn = sn
         if slot is not None:
             self.slot = slot
-        if host_name is not None:
-            self.host_name = host_name
-        if appliance_id is not None:
-            self.appliance_id = appliance_id
-        if model is not None:
-            self.model = model
-        if is_primary_node is not None:
-            self.is_primary_node = is_primary_node
-        if cluster_affinity is not None:
-            self.cluster_affinity = cluster_affinity
-        if discovered_date is not None:
-            self.discovered_date = discovered_date
-        if bios_uuid is not None:
-            self.bios_uuid = bios_uuid
-        if segment_label is not None:
-            self.segment_label = segment_label
+        if hostname is not None:
+            self.hostname = hostname
+        if name is not None:
+            self.name = name
         if manufacturer is not None:
             self.manufacturer = manufacturer
         if psnt is not None:
@@ -141,6 +123,14 @@ class HostSpecV2(object):
             self.operational_status = operational_status
         if power_status is not None:
             self.power_status = power_status
+        if boot_devices is not None:
+            self.boot_devices = boot_devices
+        if nics is not None:
+            self.nics = nics
+        if disks is not None:
+            self.disks = disks
+        if firmware_info is not None:
+            self.firmware_info = firmware_info
 
     @property
     def id(self):
@@ -166,27 +156,27 @@ class HostSpecV2(object):
         self._id = id
 
     @property
-    def serial_number(self):
-        """Gets the serial_number of this HostSpecV2.  # noqa: E501
+    def sn(self):
+        """Gets the sn of this HostSpecV2.  # noqa: E501
 
         Serial number of the host  # noqa: E501
 
-        :return: The serial_number of this HostSpecV2.  # noqa: E501
+        :return: The sn of this HostSpecV2.  # noqa: E501
         :rtype: str
         """
-        return self._serial_number
+        return self._sn
 
-    @serial_number.setter
-    def serial_number(self, serial_number):
-        """Sets the serial_number of this HostSpecV2.
+    @sn.setter
+    def sn(self, sn):
+        """Sets the sn of this HostSpecV2.
 
         Serial number of the host  # noqa: E501
 
-        :param serial_number: The serial_number of this HostSpecV2.  # noqa: E501
+        :param sn: The sn of this HostSpecV2.  # noqa: E501
         :type: str
         """
 
-        self._serial_number = serial_number
+        self._sn = sn
 
     @property
     def slot(self):
@@ -212,186 +202,50 @@ class HostSpecV2(object):
         self._slot = slot
 
     @property
-    def host_name(self):
-        """Gets the host_name of this HostSpecV2.  # noqa: E501
+    def hostname(self):
+        """Gets the hostname of this HostSpecV2.  # noqa: E501
 
         Hostname of the host  # noqa: E501
 
-        :return: The host_name of this HostSpecV2.  # noqa: E501
+        :return: The hostname of this HostSpecV2.  # noqa: E501
         :rtype: str
         """
-        return self._host_name
+        return self._hostname
 
-    @host_name.setter
-    def host_name(self, host_name):
-        """Sets the host_name of this HostSpecV2.
+    @hostname.setter
+    def hostname(self, hostname):
+        """Sets the hostname of this HostSpecV2.
 
         Hostname of the host  # noqa: E501
 
-        :param host_name: The host_name of this HostSpecV2.  # noqa: E501
+        :param hostname: The hostname of this HostSpecV2.  # noqa: E501
         :type: str
         """
 
-        self._host_name = host_name
+        self._hostname = hostname
 
     @property
-    def appliance_id(self):
-        """Gets the appliance_id of this HostSpecV2.  # noqa: E501
+    def name(self):
+        """Gets the name of this HostSpecV2.  # noqa: E501
 
-        Host appliance id  # noqa: E501
+        Name of the host  # noqa: E501
 
-        :return: The appliance_id of this HostSpecV2.  # noqa: E501
+        :return: The name of this HostSpecV2.  # noqa: E501
         :rtype: str
         """
-        return self._appliance_id
+        return self._name
 
-    @appliance_id.setter
-    def appliance_id(self, appliance_id):
-        """Sets the appliance_id of this HostSpecV2.
+    @name.setter
+    def name(self, name):
+        """Sets the name of this HostSpecV2.
 
-        Host appliance id  # noqa: E501
+        Name of the host  # noqa: E501
 
-        :param appliance_id: The appliance_id of this HostSpecV2.  # noqa: E501
+        :param name: The name of this HostSpecV2.  # noqa: E501
         :type: str
         """
 
-        self._appliance_id = appliance_id
-
-    @property
-    def model(self):
-        """Gets the model of this HostSpecV2.  # noqa: E501
-
-        Host model  # noqa: E501
-
-        :return: The model of this HostSpecV2.  # noqa: E501
-        :rtype: str
-        """
-        return self._model
-
-    @model.setter
-    def model(self, model):
-        """Sets the model of this HostSpecV2.
-
-        Host model  # noqa: E501
-
-        :param model: The model of this HostSpecV2.  # noqa: E501
-        :type: str
-        """
-
-        self._model = model
-
-    @property
-    def is_primary_node(self):
-        """Gets the is_primary_node of this HostSpecV2.  # noqa: E501
-
-        Whether the node is the primary node  # noqa: E501
-
-        :return: The is_primary_node of this HostSpecV2.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_primary_node
-
-    @is_primary_node.setter
-    def is_primary_node(self, is_primary_node):
-        """Sets the is_primary_node of this HostSpecV2.
-
-        Whether the node is the primary node  # noqa: E501
-
-        :param is_primary_node: The is_primary_node of this HostSpecV2.  # noqa: E501
-        :type: bool
-        """
-
-        self._is_primary_node = is_primary_node
-
-    @property
-    def cluster_affinity(self):
-        """Gets the cluster_affinity of this HostSpecV2.  # noqa: E501
-
-
-        :return: The cluster_affinity of this HostSpecV2.  # noqa: E501
-        :rtype: bool
-        """
-        return self._cluster_affinity
-
-    @cluster_affinity.setter
-    def cluster_affinity(self, cluster_affinity):
-        """Sets the cluster_affinity of this HostSpecV2.
-
-
-        :param cluster_affinity: The cluster_affinity of this HostSpecV2.  # noqa: E501
-        :type: bool
-        """
-
-        self._cluster_affinity = cluster_affinity
-
-    @property
-    def discovered_date(self):
-        """Gets the discovered_date of this HostSpecV2.  # noqa: E501
-
-        Discovered date  # noqa: E501
-
-        :return: The discovered_date of this HostSpecV2.  # noqa: E501
-        :rtype: int
-        """
-        return self._discovered_date
-
-    @discovered_date.setter
-    def discovered_date(self, discovered_date):
-        """Sets the discovered_date of this HostSpecV2.
-
-        Discovered date  # noqa: E501
-
-        :param discovered_date: The discovered_date of this HostSpecV2.  # noqa: E501
-        :type: int
-        """
-
-        self._discovered_date = discovered_date
-
-    @property
-    def bios_uuid(self):
-        """Gets the bios_uuid of this HostSpecV2.  # noqa: E501
-
-        Bios uuid  # noqa: E501
-
-        :return: The bios_uuid of this HostSpecV2.  # noqa: E501
-        :rtype: str
-        """
-        return self._bios_uuid
-
-    @bios_uuid.setter
-    def bios_uuid(self, bios_uuid):
-        """Sets the bios_uuid of this HostSpecV2.
-
-        Bios uuid  # noqa: E501
-
-        :param bios_uuid: The bios_uuid of this HostSpecV2.  # noqa: E501
-        :type: str
-        """
-
-        self._bios_uuid = bios_uuid
-
-    @property
-    def segment_label(self):
-        """Gets the segment_label of this HostSpecV2.  # noqa: E501
-
-        Segment label  # noqa: E501
-
-        :return: The segment_label of this HostSpecV2.  # noqa: E501
-        :rtype: str
-        """
-        return self._segment_label
-
-    @segment_label.setter
-    def segment_label(self, segment_label):
-        """Sets the segment_label of this HostSpecV2.
-
-        Segment label  # noqa: E501
-
-        :param segment_label: The segment_label of this HostSpecV2.  # noqa: E501
-        :type: str
-        """
-
-        self._segment_label = segment_label
+        self._name = name
 
     @property
     def manufacturer(self):
@@ -618,6 +472,90 @@ class HostSpecV2(object):
         """
 
         self._power_status = power_status
+
+    @property
+    def boot_devices(self):
+        """Gets the boot_devices of this HostSpecV2.  # noqa: E501
+
+
+        :return: The boot_devices of this HostSpecV2.  # noqa: E501
+        :rtype: list[BootDevice]
+        """
+        return self._boot_devices
+
+    @boot_devices.setter
+    def boot_devices(self, boot_devices):
+        """Sets the boot_devices of this HostSpecV2.
+
+
+        :param boot_devices: The boot_devices of this HostSpecV2.  # noqa: E501
+        :type: list[BootDevice]
+        """
+
+        self._boot_devices = boot_devices
+
+    @property
+    def nics(self):
+        """Gets the nics of this HostSpecV2.  # noqa: E501
+
+
+        :return: The nics of this HostSpecV2.  # noqa: E501
+        :rtype: list[Nic]
+        """
+        return self._nics
+
+    @nics.setter
+    def nics(self, nics):
+        """Sets the nics of this HostSpecV2.
+
+
+        :param nics: The nics of this HostSpecV2.  # noqa: E501
+        :type: list[Nic]
+        """
+
+        self._nics = nics
+
+    @property
+    def disks(self):
+        """Gets the disks of this HostSpecV2.  # noqa: E501
+
+
+        :return: The disks of this HostSpecV2.  # noqa: E501
+        :rtype: list[DiskInfo]
+        """
+        return self._disks
+
+    @disks.setter
+    def disks(self, disks):
+        """Sets the disks of this HostSpecV2.
+
+
+        :param disks: The disks of this HostSpecV2.  # noqa: E501
+        :type: list[DiskInfo]
+        """
+
+        self._disks = disks
+
+    @property
+    def firmware_info(self):
+        """Gets the firmware_info of this HostSpecV2.  # noqa: E501
+
+
+        :return: The firmware_info of this HostSpecV2.  # noqa: E501
+        :rtype: FirmwareInfo
+        """
+        return self._firmware_info
+
+    @firmware_info.setter
+    def firmware_info(self, firmware_info):
+        """Sets the firmware_info of this HostSpecV2.
+
+
+        :param firmware_info: The firmware_info of this HostSpecV2.  # noqa: E501
+        :type: FirmwareInfo
+        """
+
+        self._firmware_info = firmware_info
 
     def to_dict(self):
         """Returns the model properties as a dict"""
