@@ -40,5 +40,3 @@ python setup.py install --user
 ## basicAuth
 
 - **Type**: HTTP basic authentication
-
-
