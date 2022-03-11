@@ -28,7 +28,7 @@ class InlineResponse2021(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'request_id': 'str'
+        'request_id': 'Uuid'
     }
 
     attribute_map = {
