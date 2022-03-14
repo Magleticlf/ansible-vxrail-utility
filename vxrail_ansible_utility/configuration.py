@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    VxRail REST API 111111
+    VxRail REST API 
 
     The VxRail REST API provides a programmatic interface for performing VxRail administrative tasks. Data is available in JSON format.  # noqa: E501
 
